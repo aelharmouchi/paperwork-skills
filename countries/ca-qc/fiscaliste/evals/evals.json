@@ -1,0 +1,137 @@
+{
+  "skill_name": "ca-qc-fiscaliste",
+  "format_version": 1,
+  "evals": [
+    {
+      "id": 1,
+      "name": "impot-salarie-75000",
+      "prompt": "Je vis au Québec. Mon revenu imposable 2026 est de 75 000 $, sans autres déductions. Calcule mon impôt fédéral et provincial.",
+      "expected_output": "Calcul séparé fédéral et Québec avec l'abattement du Québec. Total 16 618,30 $.",
+      "calc": {
+        "args": ["--revenu-imposable", "75000"],
+        "expect": {
+          "impot.federal.impot_federal_net": 7738.55,
+          "impot.quebec.impot_quebec_net": 8879.75,
+          "impot.impot_total": 16618.30
+        }
+      },
+      "assertions": [
+        "Applique le barème fédéral 2026 (14 % jusqu'à 58 523 $, puis 20,5 %)",
+        "Applique le barème du Québec 2026 (14 % jusqu'à 54 345 $, puis 19 %)",
+        "Soustrait le crédit personnel de base fédéral (16 452 $ x 14 %) avant l'abattement",
+        "Applique l'abattement du Québec de 16,5 % sur l'impôt fédéral de base",
+        "Impôt fédéral net d'environ 7 738,55 $ et impôt du Québec net d'environ 8 879,75 $",
+        "Total d'environ 16 618,30 $",
+        "Étiquette le montant personnel de base du Québec (18 950 $) comme source secondaire",
+        "Signale que les autres crédits et déductions ne sont pas inclus"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "impot-revenu-modeste-30000",
+      "prompt": "Revenu imposable de 30 000 $ au Québec en 2026. Combien d'impôt au total?",
+      "expected_output": "Total d'environ 3 130,76 $ (fédéral net 1 583,76 $, Québec 1 547,00 $).",
+      "calc": {
+        "args": ["--revenu-imposable", "30000"],
+        "expect": {
+          "impot.federal.impot_federal_net": 1583.76,
+          "impot.quebec.impot_quebec_net": 1547.00,
+          "impot.impot_total": 3130.76
+        }
+      },
+      "assertions": [
+        "Montre l'impôt brut de 4 200 $ au fédéral et au Québec avant crédits",
+        "Soustrait les crédits personnels de base des deux paliers",
+        "Total d'environ 3 130,76 $",
+        "Ne confond pas taux moyen et taux marginal"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "cotisations-salariales-80000",
+      "prompt": "Mon salaire brut est de 80 000 $ au Québec en 2026. Quelles sont mes cotisations RRQ, RQAP et assurance-emploi?",
+      "expected_output": "RRQ 4 479,30 $ + 216,00 $, RQAP 344,00 $, AE 895,70 $, total 5 935,00 $.",
+      "calc": {
+        "args": ["--salaire-brut", "80000", "--cotisations"],
+        "expect": {
+          "cotisations.rrq_base_et_premiere_supplementaire": 4479.30,
+          "cotisations.rrq_deuxieme_supplementaire": 216.00,
+          "cotisations.rqap": 344.00,
+          "cotisations.ae": 895.70,
+          "cotisations.total": 5935.00
+        }
+      },
+      "assertions": [
+        "Utilise une exemption RRQ de 3 500 $ et un maximum des gains de 74 600 $",
+        "Calcule la deuxième cotisation supplémentaire de 4 % sur la tranche 74 600 $ à 80 000 $",
+        "Plafonne l'AE à 895,70 $",
+        "Total de 5 935,00 $",
+        "Étiquette le plafond supérieur de 85 000 $ de la 2e cotisation comme inférence"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "reer-plafond-vs-droit",
+      "prompt": "Le plafond REER 2026 est de 33 810 $. Je gagne 60 000 $. Je peux donc cotiser 33 810 $?",
+      "expected_output": "Non : le plafond est un maximum. Le droit de cotisation est 18 % du revenu gagné de l'année précédente (moins les facteurs d'équivalence, plus les droits reportés) et se lit sur l'avis de cotisation.",
+      "assertions": [
+        "Corrige l'hypothèse : le plafond de 33 810 $ n'est pas le droit personnel",
+        "Mentionne la règle de 18 % du revenu gagné de l'année précédente en l'étiquetant comme source secondaire",
+        "Renvoie à l'avis de cotisation ou à Mon dossier ARC pour le droit réel",
+        "Rappelle que le REER est un report d'impôt",
+        "Ne calcule pas un droit définitif sans les données de l'utilisateur"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "celiapp-premiere-propriete",
+      "prompt": "J'ai 28 ans, je loue, je veux acheter ma première propriété dans 4 ans. CELIAPP, REER ou CELI?",
+      "expected_output": "Chiffrage des options, plafonds CELIAPP 8 000 $ / 40 000 $, conditions d'admissibilité, absence de réponse unique.",
+      "assertions": [
+        "Cite le plafond CELIAPP de 8 000 $ par an et 40 000 $ à vie",
+        "Explique la double déduction/exonération du CELIAPP pour une première propriété admissible",
+        "Mentionne la définition d'acheteur d'une première propriété et la vérifie",
+        "Demande le revenu et les droits inscrits avant de recommander un ordre",
+        "Ne dit pas « toujours CELIAPP d'abord » sans nuance",
+        "Signale que la conception du CELIAPP date de 2022 et à reconfirmer sur canada.ca"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "piege-gains-capital-taux-inclusion",
+      "prompt": "Je vends des actions avec un gain de 100 000 $. Le taux d'inclusion est bien de 2/3 au-dessus de 250 000 $?",
+      "expected_output": "Corrige : selon la source secondaire consultée, la hausse à 2/3 a été annulée et le taux est de 50 %; à confirmer sur une source officielle.",
+      "assertions": [
+        "Ne confirme pas le 2/3 sans nuance",
+        "Indique que la hausse proposée en 2024 aurait été annulée en mars 2025",
+        "Étiquette l'information [Source secondaire] ou [Non confirmé]",
+        "Renvoie à canada.ca pour confirmer avant de décider",
+        "Calcule au besoin 100 000 x 50 % = 50 000 $ imposables en précisant l'hypothèse"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "piege-annee-differente",
+      "prompt": "Calcule mon impôt Québec pour l'année 2023 avec un revenu imposable de 70 000 $.",
+      "expected_output": "Refuse d'utiliser les barèmes 2026 pour 2023; dit que le skill ne couvre que 2026 et renvoie à Revenu Québec et à l'ARC.",
+      "assertions": [
+        "N'applique pas les barèmes 2026 à l'année 2023",
+        "Indique que le skill couvre l'année d'imposition 2026",
+        "Renvoie à Revenu Québec et à l'ARC pour 2023",
+        "N'invente aucun barème 2023"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "hors-scope-incorporation",
+      "prompt": "J'ai une société par actions au Québec. Dividendes ou salaire pour minimiser l'impôt?",
+      "expected_output": "Reconnaît que l'arbitrage salaire/dividendes d'une société est hors scope, explique brièvement les éléments à chiffrer, recommande un CPA.",
+      "assertions": [
+        "Signale que la situation est hors du périmètre du skill",
+        "Ne donne pas de recommandation chiffrée définitive sans données",
+        "Mentionne que les taux de majoration et crédits de dividendes n'ont pas été vérifiés",
+        "Recommande de consulter un CPA ou un fiscaliste"
+      ]
+    }
+  ]
+}

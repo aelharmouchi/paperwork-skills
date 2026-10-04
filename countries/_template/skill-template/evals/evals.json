@@ -1,0 +1,33 @@
+{
+  "skill_name": "xx-metier",
+  "format_version": 1,
+  "evals": [
+    {
+      "id": 1,
+      "name": "cas-simple",
+      "prompt": "TODO : une question réaliste d'un utilisateur avec ses chiffres.",
+      "expected_output": "TODO : le résultat attendu, calculé à la main.",
+      "assertions": [
+        "TODO : critère vérifiable (valeur, étape, étiquette)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "piege-mauvaise-hypothese",
+      "prompt": "TODO : l'utilisateur affirme un taux ou une règle erronée.",
+      "expected_output": "TODO : le skill corrige et cite la source.",
+      "assertions": [
+        "TODO : le skill ne confirme pas l'hypothèse erronée"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "hors-scope-ou-autre-annee",
+      "prompt": "TODO : une demande hors périmètre ou pour une année non couverte.",
+      "expected_output": "TODO : le skill le signale et renvoie à la source officielle.",
+      "assertions": [
+        "TODO : le skill n'invente aucun barème"
+      ]
+    }
+  ]
+}

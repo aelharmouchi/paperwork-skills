@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "country": "ma",
+    "tax_year": 2026,
+    "last_verified": "2026-10-04",
+    "note": "Barème annuel de l'impôt sur le revenu (IR) des personnes physiques au Maroc, article 73-I du Code général des impôts (CGI)."
+  },
+  "sources": [
+    {
+      "id": "mef-lf2025",
+      "title": "Ministère de l'Économie et des Finances — Note synthétique des mesures fiscales de la loi de finances n° 60-24 pour 2025",
+      "url": "https://www.finances.gov.ma/Publication/dgi/2024/synthetique-mesures-fiscaleslF2025.pdf",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "ecovis-lf2026",
+      "title": "Ecovis Maroc — Loi de Finances 2026 (PDF)",
+      "url": "https://www.ecovis.com/morocco/fr/wp-content/uploads/sites/2/2026/02/Maroc-Loi-de-Finances-2026.pdf",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "wafir-bareme-2026",
+      "title": "Wafir — Barème IR Maroc 2026 (guide)",
+      "url": "https://wafir.ma/fr/guide/bareme-ir-maroc-2026-tranches-deductions-37-pourcent",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    }
+  ],
+  "values": {
+    "ir_brackets": {
+      "value": [
+        { "up_to": 40000, "rate": 0.0, "deduction": 0 },
+        { "up_to": 60000, "rate": 0.10, "deduction": 4000 },
+        { "up_to": 80000, "rate": 0.20, "deduction": 10000 },
+        { "up_to": 100000, "rate": 0.30, "deduction": 18000 },
+        { "up_to": 180000, "rate": 0.34, "deduction": 22000 },
+        { "up_to": null, "rate": 0.37, "deduction": 27400 }
+      ],
+      "source": "mef-lf2025",
+      "confidence": "official",
+      "display": "40 000 MAD",
+      "note": "Barème introduit par la loi de finances 2025 (n° 60-24), applicable depuis le 1er janvier 2025. Aucun changement du barème n'est mentionné pour 2026 dans les sources secondaires consultées (Ecovis, Wafir) : la loi de finances 2026 n° 60-25 n'a pas été lue en entier [Non confirmé pour 2026]."
+    },
+    "ir_top_rate": {
+      "value": 0.37,
+      "source": "mef-lf2025",
+      "confidence": "official",
+      "display": "37 %"
+    },
+    "ir_exempt_threshold": {
+      "value": 40000,
+      "source": "mef-lf2025",
+      "confidence": "official",
+      "display": "40 000 MAD"
+    },
+    "family_charge_per_person": {
+      "value": 600,
+      "source": "ecovis-lf2026",
+      "confidence": "secondary",
+      "display": "600 MAD",
+      "note": "Réduction pour charges de famille (art. 74-I CGI), portée de 500 à 600 MAD par personne à charge à compter du 1er janvier 2026 (LF 2026). Source secondaire; la note circulaire DGI n° 737 la reprend, mais n'a pu être lue que via une reproduction de presse."
+    },
+    "family_charge_max_persons": {
+      "value": 6,
+      "source": "wafir-bareme-2026",
+      "confidence": "secondary",
+      "display": "6 personnes"
+    },
+    "family_charge_cap": {
+      "value": 3600,
+      "source": "ecovis-lf2026",
+      "confidence": "secondary",
+      "display": "3 600 MAD"
+    }
+  }
+}

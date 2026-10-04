@@ -1,0 +1,140 @@
+{
+  "_meta": {
+    "country": "ca-qc",
+    "tax_year": 2026,
+    "last_verified": "2026-10-04",
+    "note": "Barèmes de l'impôt sur le revenu des particuliers, année d'imposition 2026 (déclaration produite au printemps 2027)."
+  },
+  "sources": [
+    {
+      "id": "rq-taux",
+      "title": "Revenu Québec — Taux d'imposition",
+      "url": "https://www.revenuquebec.ca/fr/citoyens/declaration-de-revenus/produire-votre-declaration-de-revenus/taux-dimposition/",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "arc-taux",
+      "title": "ARC — Impôt sur le revenu des particuliers, taux et tranches (année en cours)",
+      "url": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/taux-imposition-tranches-revenu/annee-en-cours.html",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "arc-t4032qc",
+      "title": "ARC — T4032-QC, Tables de retenues sur la paie, janvier 2026, information générale",
+      "url": "https://www.canada.ca/fr/agence-revenu/services/formulaires-publications/retenues-paie/t4032-tables-retenues-paie/t4032qc-jan/t4032qc-janvier-information-generale.html",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "fin-abattement",
+      "title": "Finances Canada — Abattement d'impôt du Québec",
+      "url": "https://www.canada.ca/en/department-finance/programs/federal-transfers/quebec-abatement.html",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "rq-indexation-2026",
+      "title": "Revenu Québec — Principaux changements pour 2026 (trousse employeur)",
+      "url": "https://www.revenuquebec.ca/fr/entreprises/retenues-a-la-source-et-cotisations-de-lemployeur/trousse-employeur/principaux-changements-pour-2026-trousse-employeur/",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "rcgt-2026",
+      "title": "Raymond Chabot Grant Thornton — Impôt des particuliers, Québec, 2026 (PDF)",
+      "url": "https://www.rcgt.com/contentassets/5142f7cf936d42d7aa7666314c21ccd1/impot-des-particuliers---quebec---2026.pdf",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "arc-bpa-2025",
+      "title": "ARC — Ligne 30000, montant personnel de base (page affichant l'année 2025)",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-30000-basic-personal-amount.html",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    }
+  ],
+  "values": {
+    "federal_brackets": {
+      "value": [
+        { "up_to": 58523, "rate": 0.14 },
+        { "up_to": 117045, "rate": 0.205 },
+        { "up_to": 181440, "rate": 0.26 },
+        { "up_to": 258482, "rate": 0.29 },
+        { "up_to": null, "rate": 0.33 }
+      ],
+      "source": "arc-taux",
+      "confidence": "official",
+      "display": "58 523 $"
+    },
+    "quebec_brackets": {
+      "value": [
+        { "up_to": 54345, "rate": 0.14 },
+        { "up_to": 108680, "rate": 0.19 },
+        { "up_to": 132245, "rate": 0.24 },
+        { "up_to": null, "rate": 0.2575 }
+      ],
+      "source": "rq-taux",
+      "confidence": "official",
+      "display": "54 345 $"
+    },
+    "quebec_indexation_rate": {
+      "value": 0.0205,
+      "source": "rq-indexation-2026",
+      "confidence": "official",
+      "display": "2,05 %"
+    },
+    "federal_bpa_max": {
+      "value": 16452,
+      "source": "arc-t4032qc",
+      "confidence": "official",
+      "display": "16 452 $"
+    },
+    "federal_bpa_min": {
+      "value": 14829,
+      "source": "arc-t4032qc",
+      "confidence": "official",
+      "display": "14 829 $"
+    },
+    "federal_bpa_phaseout_start": {
+      "value": 181440,
+      "source": "arc-bpa-2025",
+      "confidence": "unconfirmed",
+      "note": "[Inférence] Pour 2025, l'ARC fixe le début de la réduction à 177 882 $ et la fin à 253 414 $, soit les seuils des 4e et 5e tranches. Pour 2026, on applique la même logique aux seuils 2026 (181 440 $ / 258 482 $). Non confirmé par une page ARC 2026."
+    },
+    "federal_bpa_phaseout_end": {
+      "value": 258482,
+      "source": "arc-bpa-2025",
+      "confidence": "unconfirmed",
+      "note": "[Inférence] Voir federal_bpa_phaseout_start."
+    },
+    "federal_credit_rate": {
+      "value": 0.14,
+      "source": "arc-t4032qc",
+      "confidence": "official",
+      "display": "14 %",
+      "note": "Taux le plus bas, également utilisé pour les crédits non remboursables."
+    },
+    "quebec_bpa": {
+      "value": 18950,
+      "source": "rcgt-2026",
+      "confidence": "secondary",
+      "display": "18 950 $",
+      "note": "Déduit de la source secondaire : crédit personnel de base du Québec de 2 653 $ à 14 % = 18 950 $. Revenu Québec indique 18 571 $ pour 2025; 18 571 $ x 1,0205 = 18 952 $, cohérent. À confirmer sur le guide TP-1.D.V 2026."
+    },
+    "quebec_credit_rate": {
+      "value": 0.14,
+      "source": "rcgt-2026",
+      "confidence": "secondary",
+      "display": "14 %"
+    },
+    "quebec_abatement_rate": {
+      "value": 0.165,
+      "source": "fin-abattement",
+      "confidence": "official",
+      "display": "16,5 %"
+    }
+  }
+}

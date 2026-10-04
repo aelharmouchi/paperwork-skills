@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "country": "ma",
+    "tax_year": 2026,
+    "last_verified": "2026-10-04",
+    "note": "Frais professionnels et retenue à la source sur loyers. Valeurs non confirmées par une source officielle : à utiliser avec étiquette."
+  },
+  "sources": [
+    {
+      "id": "cielmaroc-lf2023",
+      "title": "CIEL Maroc — Loi de Finances 2023 : révision du taux d'abattement des frais professionnels (art. 59-I-A et B du CGI)",
+      "url": "https://www.cielmaroc.ma/actualites/loi-de-finances-2023-revision-du-taux-dabattement-des-frais-professionnels-pour-les-titulaires-des-revenus-salariaux-article-59-i-a-et-b-du-cgi",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "wafir-bareme-2026",
+      "title": "Wafir — Barème IR Maroc 2026 (guide)",
+      "url": "https://wafir.ma/fr/guide/bareme-ir-maroc-2026-tranches-deductions-37-pourcent",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "ecovis-lf2026",
+      "title": "Ecovis Maroc — Loi de Finances 2026 (PDF)",
+      "url": "https://www.ecovis.com/morocco/fr/wp-content/uploads/sites/2/2026/02/Maroc-Loi-de-Finances-2026.pdf",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    }
+  ],
+  "values": {
+    "frais_pro_rate_low": {
+      "value": 0.35,
+      "source": "cielmaroc-lf2023",
+      "confidence": "unconfirmed",
+      "note": "[Non confirmé] Frais professionnels des salariés : 35 % si le revenu brut imposable annuel est inférieur ou égal à 78 000 MAD (LF 2023, art. 59-I-A). Source secondaire. CONFLIT : Wafir et d'autres sites indiquent 20 % plafonné à 35 000 MAD pour 2026. La note circulaire DGI n° 733 (LF 2023) n'a pas pu être lue (accès bloqué)."
+    },
+    "frais_pro_rate_high": {
+      "value": 0.25,
+      "source": "cielmaroc-lf2023",
+      "confidence": "unconfirmed",
+      "note": "[Non confirmé] 25 % au-delà de 78 000 MAD, plafond de 35 000 MAD (LF 2023). Même conflit de sources que frais_pro_rate_low."
+    },
+    "frais_pro_threshold": {
+      "value": 78000,
+      "source": "cielmaroc-lf2023",
+      "confidence": "unconfirmed",
+      "note": "[Non confirmé] Seuil de 78 000 MAD de revenu brut imposable annuel."
+    },
+    "frais_pro_cap": {
+      "value": 35000,
+      "source": "cielmaroc-lf2023",
+      "confidence": "unconfirmed",
+      "note": "[Non confirmé] Plafond de 35 000 MAD par an, cité par toutes les sources consultées."
+    },
+    "rental_withholding_rate": {
+      "value": 0.05,
+      "source": "ecovis-lf2026",
+      "confidence": "secondary",
+      "display": "5 %",
+      "note": "Retenue à la source de 5 % sur les produits de location immobilière, imputable sur l'impôt final, à compter du 1er juillet 2026 (LF 2026). Mise en oeuvre progressive selon le chiffre d'affaires des opérateurs, d'après une source secondaire."
+    }
+  }
+}

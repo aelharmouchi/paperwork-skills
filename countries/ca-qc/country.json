@@ -1,0 +1,14 @@
+{
+  "code": "ca-qc",
+  "name": "Canada — Québec",
+  "language": "fr",
+  "currency": "CAD",
+  "status": "partial-verified",
+  "authorities": [
+    { "name": "Revenu Québec", "url": "https://www.revenuquebec.ca/" },
+    { "name": "Agence du revenu du Canada (ARC)", "url": "https://www.canada.ca/fr/agence-revenu.html" },
+    { "name": "Finances Canada", "url": "https://www.canada.ca/fr/ministere-finances.html" }
+  ],
+  "skills_planned": ["comptable-pme"],
+  "maintainers": []
+}

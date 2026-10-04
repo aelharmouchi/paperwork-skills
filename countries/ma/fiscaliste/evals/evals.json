@@ -1,0 +1,105 @@
+{
+  "skill_name": "ma-fiscaliste",
+  "format_version": 1,
+  "evals": [
+    {
+      "id": 1,
+      "name": "ir-100000",
+      "prompt": "Au Maroc, mon revenu net imposable annuel est de 100 000 MAD, célibataire sans enfant. Combien d'IR?",
+      "expected_output": "IR de 12 000 MAD, calculé tranche par tranche.",
+      "calc": {
+        "args": ["--revenu-net-imposable", "100000"],
+        "expect": { "ir.ir_brut": 12000.0, "ir.ir_net": 12000.0 }
+      },
+      "assertions": [
+        "Applique 0 % jusqu'à 40 000 MAD, 10 % de 40 001 à 60 000, 20 % de 60 001 à 80 000, 30 % de 80 001 à 100 000",
+        "Montre les montants intermédiaires (2 000, 4 000, 6 000)",
+        "Résultat de 12 000 MAD",
+        "Peut vérifier avec la méthode « 30 % x 100 000 − 18 000 »",
+        "Cite l'article 73-I du CGI et la loi de finances 2025 comme source du barème"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ir-120000-deux-personnes-a-charge",
+      "prompt": "Revenu net imposable de 120 000 MAD, marié, 2 enfants à charge, au Maroc en 2026. Quel est mon IR net?",
+      "expected_output": "IR brut 18 800 MAD, réduction charges de famille 1 200 MAD, IR net 17 600 MAD. La réduction de 600 MAD par personne est étiquetée source secondaire.",
+      "calc": {
+        "args": ["--revenu-net-imposable", "120000", "--personnes-a-charge", "2"],
+        "expect": { "ir.ir_brut": 18800.0, "ir.reduction_charges_famille": 1200.0, "ir.ir_net": 17600.0 }
+      },
+      "assertions": [
+        "IR brut de 18 800 MAD (34 % x 120 000 − 22 000)",
+        "Réduction pour charges de famille de 600 MAD par personne, soit 1 200 MAD",
+        "IR net de 17 600 MAD",
+        "Étiquette la valeur de 600 MAD comme [Source secondaire] ou à confirmer auprès de la DGI",
+        "Demande si le conjoint compte comme personne à charge ou signale l'hypothèse"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ir-200000",
+      "prompt": "Mon revenu net imposable est de 200 000 MAD. Quel est mon IR et mon taux marginal?",
+      "expected_output": "IR de 46 600 MAD, taux marginal 37 %.",
+      "calc": {
+        "args": ["--revenu-net-imposable", "200000"],
+        "expect": { "ir.ir_brut": 46600.0 }
+      },
+      "assertions": [
+        "Résultat de 46 600 MAD",
+        "Taux marginal de 37 %",
+        "Ne confond pas taux marginal (37 %) et taux moyen (environ 23,3 %)"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "piege-frais-professionnels-conflit",
+      "prompt": "Quel est le taux des frais professionnels pour un salarié marocain en 2026? Mon salaire brut imposable est de 200 000 MAD.",
+      "expected_output": "Présente les deux versions en conflit (35 %/25 % plafonné à 35 000 vs 20 % plafonné à 35 000), les étiquette [Non confirmé] et renvoie à la DGI. Dans les deux cas, le plafond de 35 000 MAD s'applique à ce niveau de salaire.",
+      "assertions": [
+        "Étiquette l'information [Non confirmé]",
+        "Mentionne que les sources se contredisent",
+        "Ne choisit pas silencieusement une version",
+        "Observe qu'à 200 000 MAD, les deux versions aboutissent au plafond de 35 000 MAD (25 % x 200 000 = 50 000 > 35 000; 20 % x 200 000 = 40 000 > 35 000)",
+        "Renvoie à la DGI ou à la loi de finances en vigueur pour confirmer"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "piege-ancien-taux-38",
+      "prompt": "Le taux marginal maximum de l'IR au Maroc est de 38 %, n'est-ce pas?",
+      "expected_output": "Corrige : 37 % depuis la loi de finances 2025, au-delà de 180 000 MAD; 38 % était l'ancien taux.",
+      "assertions": [
+        "Corrige l'hypothèse : le taux marginal maximal est de 37 %",
+        "Indique que 38 % était le taux avant la réforme de 2025",
+        "Cite la note synthétique du ministère de l'Économie et des Finances (LF 2025)",
+        "Mentionne que l'application en 2026 n'est pas confirmée par la LF 2026 lue en entier"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "retenue-loyers",
+      "prompt": "Je loue un appartement à Casablanca à une entreprise. On me parle d'une retenue à la source de 5 %. C'est vrai?",
+      "expected_output": "Selon une source secondaire, retenue de 5 % sur les loyers à compter du 1er juillet 2026; modalités à confirmer auprès de la DGI.",
+      "assertions": [
+        "Mentionne la retenue de 5 % et la date du 1er juillet 2026",
+        "Étiquette [Source secondaire]",
+        "Indique que les modalités (débiteur, seuils) ne sont pas confirmées",
+        "Précise que la retenue est imputable sur l'impôt final",
+        "Renvoie à la circulaire DGI"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "hors-scope-mre",
+      "prompt": "Je suis Marocain résidant au Canada et je loue un appartement au Maroc. Comment est imposé mon loyer?",
+      "expected_output": "Reconnaît que la situation d'un non-résident (MRE) et la convention fiscale Maroc-Canada sont hors du périmètre; ne donne pas de taux inventé; renvoie à la DGI et à un conseiller.",
+      "assertions": [
+        "Signale que le cas d'un non-résident est hors scope",
+        "N'invente aucun taux libératoire",
+        "Mentionne l'existence possible d'une convention fiscale sans en affirmer le contenu",
+        "Renvoie au guide fiscal DGI pour les MRE ou à un conseiller"
+      ]
+    }
+  ]
+}

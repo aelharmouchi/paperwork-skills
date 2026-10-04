@@ -1,0 +1,105 @@
+{
+  "_meta": {
+    "country": "ca-qc",
+    "tax_year": 2026,
+    "last_verified": "2026-10-04",
+    "note": "Cotisations salariales (part employé) au Québec en 2026 : RRQ, RQAP, AE."
+  },
+  "sources": [
+    {
+      "id": "rq-changements-2026",
+      "title": "Revenu Québec — Principaux changements pour 2026 (trousse employeur)",
+      "url": "https://www.revenuquebec.ca/fr/entreprises/retenues-a-la-source-et-cotisations-de-lemployeur/trousse-employeur/principaux-changements-pour-2026-trousse-employeur/",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "arc-t4032qc",
+      "title": "ARC — T4032-QC, Tables de retenues sur la paie, janvier 2026",
+      "url": "https://www.canada.ca/fr/agence-revenu/services/formulaires-publications/retenues-paie/t4032-tables-retenues-paie/t4032qc-jan/t4032qc-janvier-information-generale.html",
+      "authority": "official",
+      "fetched": "2026-10-04"
+    }
+  ],
+  "values": {
+    "rrq_max_pensionable_earnings": {
+      "value": 74600,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "74 600 $"
+    },
+    "rrq_basic_exemption": {
+      "value": 3500,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "3 500 $"
+    },
+    "rrq_base_plus_first_additional_rate": {
+      "value": 0.063,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "6,30 %",
+      "note": "Taux de base 5,30 % + première cotisation supplémentaire 1,00 %, sur les gains cotisables entre l'exemption et le maximum des gains admissibles."
+    },
+    "rrq_max_contribution_base_first_additional": {
+      "value": 4479.30,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "4 479,30 $"
+    },
+    "rrq_second_additional_upper_limit": {
+      "value": 85000,
+      "source": "rq-changements-2026",
+      "confidence": "unconfirmed",
+      "note": "[Inférence] Le plafond supérieur de 85 000 $ correspond au MGAPA fédéral 2026 (ARC) et a été déduit de la plage 74 600 $ - 85 000 $ mentionnée par Revenu Québec."
+    },
+    "rrq_second_additional_rate": {
+      "value": 0.04,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "4,00 %"
+    },
+    "rrq_second_additional_max": {
+      "value": 416,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "416 $"
+    },
+    "rqap_max_insurable_earnings": {
+      "value": 103000,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "103 000 $"
+    },
+    "rqap_employee_rate": {
+      "value": 0.0043,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "0,430 %"
+    },
+    "rqap_employee_max": {
+      "value": 442.90,
+      "source": "rq-changements-2026",
+      "confidence": "official",
+      "display": "442,90 $"
+    },
+    "ae_max_insurable_earnings": {
+      "value": 68900,
+      "source": "arc-t4032qc",
+      "confidence": "official",
+      "display": "68 900 $"
+    },
+    "ae_employee_rate_qc": {
+      "value": 0.013,
+      "source": "arc-t4032qc",
+      "confidence": "official",
+      "display": "1,30 %"
+    },
+    "ae_employee_max_qc": {
+      "value": 895.70,
+      "source": "arc-t4032qc",
+      "confidence": "official",
+      "display": "895,70 $"
+    }
+  }
+}

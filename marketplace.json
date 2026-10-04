@@ -1,0 +1,24 @@
+{
+  "name": "paperwork-skills",
+  "description": "Skills pour agents IA : paperasse fiscale et administrative, pays par pays",
+  "version": "0.1.0",
+  "license": "MIT",
+  "skills": [
+    {
+      "slug": "ca-qc-fiscaliste",
+      "country": "ca-qc",
+      "language": "fr",
+      "path": "countries/ca-qc/fiscaliste/SKILL.md",
+      "status": "partial-verified",
+      "description": "Impôt fédéral + Québec 2026, REER, CELI, CELIAPP, cotisations RRQ/RQAP/AE"
+    },
+    {
+      "slug": "ma-fiscaliste",
+      "country": "ma",
+      "language": "fr",
+      "path": "countries/ma/fiscaliste/SKILL.md",
+      "status": "partial-verified",
+      "description": "IR Maroc : barème, charges de famille, retenue sur loyers"
+    }
+  ]
+}

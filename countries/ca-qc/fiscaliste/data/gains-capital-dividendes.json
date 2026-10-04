@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "country": "ca-qc",
+    "tax_year": 2026,
+    "last_verified": "2026-10-04",
+    "note": "Gains en capital et dividendes. À compléter avec une source officielle avant publication « verified »."
+  },
+  "sources": [
+    {
+      "id": "silaws-gains-capital",
+      "title": "SiLaws — Budget 2026 : gains en capital et fiscalité immobilière (publié le 28 avril 2026)",
+      "url": "https://silaws.com/2026/04/28/budget-2026-gains-en-capital-fiscalite-immobiliere/",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "fidelity-2026",
+      "title": "Fidelity — Fiche de renseignements fiscaux 2026",
+      "url": "https://www.fidelity.ca/content/dam/fidelity/fr/documents/other-pdfs/2026-tax-facts-sheet-f.pdf",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    },
+    {
+      "id": "rcgt-2026",
+      "title": "Raymond Chabot Grant Thornton — Impôt des particuliers, Québec, 2026 (PDF)",
+      "url": "https://www.rcgt.com/contentassets/5142f7cf936d42d7aa7666314c21ccd1/impot-des-particuliers---quebec---2026.pdf",
+      "authority": "secondary",
+      "fetched": "2026-10-04"
+    }
+  ],
+  "values": {
+    "capital_gains_inclusion_rate": {
+      "value": 0.5,
+      "source": "silaws-gains-capital",
+      "confidence": "secondary",
+      "display": "50 %",
+      "note": "La hausse à 2/3 proposée au budget 2024 a été annulée le 21 mars 2025 selon la source; le budget 2025 (4 nov. 2025) confirmerait les 50 %. À confirmer sur une page ARC ou Finances Canada."
+    },
+    "lifetime_capital_gains_exemption": {
+      "value": 1275000,
+      "source": "fidelity-2026",
+      "confidence": "secondary",
+      "display": "1 275 000 $",
+      "note": "Exonération cumulative des gains en capital (actions admissibles de petite entreprise, biens agricoles ou de pêche)."
+    },
+    "federal_eligible_dividend_credit_pct_of_taxable": {
+      "value": 0.1502,
+      "source": "rcgt-2026",
+      "confidence": "secondary",
+      "display": "15,02 %"
+    },
+    "federal_non_eligible_dividend_credit_pct_of_taxable": {
+      "value": 0.0903,
+      "source": "rcgt-2026",
+      "confidence": "secondary",
+      "display": "9,03 %"
+    },
+    "quebec_eligible_dividend_credit_pct_of_taxable": {
+      "value": 0.117,
+      "source": "rcgt-2026",
+      "confidence": "secondary",
+      "display": "11,70 %"
+    },
+    "quebec_non_eligible_dividend_credit_pct_of_taxable": {
+      "value": 0.0342,
+      "source": "rcgt-2026",
+      "confidence": "secondary",
+      "display": "3,42 %"
+    }
+  }
+}

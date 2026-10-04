@@ -1,0 +1,12 @@
+{
+  "code": "xx",
+  "name": "Nom du pays",
+  "language": "fr",
+  "currency": "XXX",
+  "status": "experimental",
+  "authorities": [
+    { "name": "Autorité fiscale nationale", "url": "https://exemple.gouv/" }
+  ],
+  "skills_planned": [],
+  "maintainers": []
+}

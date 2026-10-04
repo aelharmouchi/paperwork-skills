@@ -1,0 +1,15 @@
+{
+  "code": "ma",
+  "name": "Maroc (المغرب)",
+  "language": "fr",
+  "currency": "MAD",
+  "status": "partial-verified",
+  "authorities": [
+    { "name": "Direction Générale des Impôts (DGI) — المديرية العامة للضرائب", "url": "https://www.tax.gov.ma/" },
+    { "name": "Ministère de l'Économie et des Finances", "url": "https://www.finances.gov.ma/" },
+    { "name": "Secrétariat Général du Gouvernement (Bulletin Officiel)", "url": "https://www.sgg.gov.ma/" },
+    { "name": "CNSS", "url": "https://www.cnss.ma/" }
+  ],
+  "skills_planned": ["comptable-pme"],
+  "maintainers": []
+}

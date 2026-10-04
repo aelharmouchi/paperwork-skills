@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "country": "xx",
+    "tax_year": 2026,
+    "last_verified": "AAAA-MM-JJ",
+    "note": "Décrire le contenu de ce fichier."
+  },
+  "sources": [
+    {
+      "id": "source-officielle-1",
+      "title": "Titre de la page ou du document officiel",
+      "url": "https://exemple.gouv/page",
+      "authority": "official",
+      "fetched": "AAAA-MM-JJ"
+    },
+    {
+      "id": "source-secondaire-1",
+      "title": "Titre de l'article (cabinet, média, blog)",
+      "url": "https://exemple.com/article",
+      "authority": "secondary",
+      "fetched": "AAAA-MM-JJ"
+    }
+  ],
+  "values": {
+    "exemple_taux_officiel": {
+      "value": 0.2,
+      "source": "source-officielle-1",
+      "confidence": "official",
+      "display": "20 %"
+    },
+    "exemple_valeur_secondaire": {
+      "value": 1000,
+      "source": "source-secondaire-1",
+      "confidence": "secondary",
+      "display": "1 000"
+    },
+    "exemple_valeur_incertaine": {
+      "value": 5,
+      "source": "source-secondaire-1",
+      "confidence": "unconfirmed",
+      "note": "[Non confirmé] Expliquer pourquoi (sources en conflit, déduction, etc.)."
+    }
+  }
+}
