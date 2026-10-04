@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Si vous utilisez ce projet, merci de le citer ainsi."
+title: "paperwork-skills"
+type: software
+abstract: "Skills pour agents IA : paperasse fiscale et administrative, pays par pays, avec sources et niveaux de confiance pour chaque valeur."
+authors:
+  - alias: "aelharmouchi"
+repository-code: "https://github.com/aelharmouchi/paperwork-skills"
+license: MIT
+version: "0.1.0"
+date-released: "2026-10-04"
+keywords:
+  - ai-skills
+  - taxation
+  - quebec
+  - morocco

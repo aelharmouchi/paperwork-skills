@@ -1,0 +1,60 @@
+name: Valeur incorrecte ou obsolète
+description: Un taux, un plafond ou un seuil semble faux, périmé ou mal sourcé.
+title: "[Données] "
+labels: ["données", "à-vérifier"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de signaler une erreur. **Une correction avec un lien vers une source officielle sera traitée en priorité.**
+  - type: input
+    id: pays
+    attributes:
+      label: Pays et skill
+      placeholder: "ca-qc / fiscaliste"
+    validations:
+      required: true
+  - type: input
+    id: fichier
+    attributes:
+      label: Fichier et clé concernés
+      placeholder: "countries/ma/fiscaliste/data/bareme-ir-2026.json : family_charge_per_person"
+    validations:
+      required: true
+  - type: textarea
+    id: actuel
+    attributes:
+      label: Valeur actuelle dans le dépôt
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Valeur que vous pensez correcte
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source officielle (lien)
+      description: Site gouvernemental, journal officiel, circulaire, autorité fiscale. Une source de cabinet ou de média est acceptée mais restera étiquetée « secondaire ».
+      placeholder: "https://"
+    validations:
+      required: true
+  - type: dropdown
+    id: annee
+    attributes:
+      label: Année d'imposition concernée
+      options:
+        - "2026"
+        - "2025"
+        - "Autre (préciser ci-dessus)"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Vérifications
+      options:
+        - label: J'ai lu la source indiquée et la valeur y figure bien.
+          required: true

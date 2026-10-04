@@ -1,0 +1,54 @@
+name: Proposer un nouveau pays ou un nouveau skill
+description: Vous souhaitez ajouter un pays ou un métier (comptable, notaire, etc.).
+title: "[Pays] "
+labels: ["nouveau-pays"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Avant de commencer, lisez [CONTRIBUTING.md](https://github.com/aelharmouchi/paperwork-skills/blob/master/CONTRIBUTING.md). Le plus simple est de copier `countries/_template` et de lancer `python tools/validate_skills.py`.
+  - type: input
+    id: pays
+    attributes:
+      label: Pays ou région et code
+      placeholder: "Tunisie (tn), Wallonie (be-wal), France (fr)..."
+    validations:
+      required: true
+  - type: input
+    id: metier
+    attributes:
+      label: Skill envisagé
+      placeholder: "fiscaliste, comptable-pme, notaire..."
+    validations:
+      required: true
+  - type: input
+    id: langue
+    attributes:
+      label: Langue du contenu
+      placeholder: "fr, ar, en..."
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources officielles prévues
+      description: Autorités fiscales, journaux officiels, circulaires.
+    validations:
+      required: true
+  - type: dropdown
+    id: relecteur
+    attributes:
+      label: Avez-vous accès à un professionnel du pays pour relire le contenu ?
+      options:
+        - "Oui, je suis moi-même professionnel"
+        - "Oui, une autre personne"
+        - "Non, pas pour l'instant"
+    validations:
+      required: true
+  - type: checkboxes
+    id: engagement
+    attributes:
+      label: Engagements
+      options:
+        - label: Je m'engage à étiqueter les valeurs non officielles (`secondary` ou `unconfirmed`) et à ne pas contourner un blocage de lecture automatisée.
+          required: true

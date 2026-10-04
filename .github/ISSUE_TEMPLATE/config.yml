@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Lire le guide de contribution
+    url: https://github.com/aelharmouchi/paperwork-skills/blob/master/CONTRIBUTING.md
+    about: Comment ajouter un pays ou corriger une valeur.
+  - name: Signaler une vulnérabilité en privé
+    url: https://github.com/aelharmouchi/paperwork-skills/security/advisories/new
+    about: Pour les failles de sécurité du code, pas pour les erreurs de données fiscales.
